@@ -24,7 +24,7 @@ router.post("/create", async (req, res) => {
   try {
     if (req.fields.title && req.fields.done) {
       if (req.fields.title.trim().length === 0) return res.status(400).json({ error: "Empty" }); 
-      if (req.fields.title.length > 30) return res.status(400).json({ error: "Title must be less than 50 characters" }); 
+      if (req.fields.title.length > 30) return res.status(400).json({ error: "Title must be less than 30 characters" }); 
 
       const t = await Task.findOne({ title: req.fields.title}); //doublon
       if (!t) {
